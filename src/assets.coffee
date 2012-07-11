@@ -233,7 +233,7 @@ class ConnectAssets
           chain = @snockets.getCompiledChain sourcePath, async: false
           return @cachedRoutePaths[route] = for {filename, js} in chain
             filename = stripExt(filename) + '.js'
-            filename.replace /\\/g, '/'
+            filename = filename.replace /\\/g, '/'
             @cache.set filename, js
             "/#{filename}"
       catch e
